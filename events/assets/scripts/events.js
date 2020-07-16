@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll("button");
 
 const buttonClickHandler = event => {
   // event.target.disabled = true;
-  console.log(event);
+  // console.log(event);
   // alert("Clicked");
 };
 
@@ -35,22 +35,22 @@ window.addEventListener("scroll", event => {
 
 let curElementNumber = 0;
 
-function scrollHandler(){
+function scrollHandler() {
   const distanceToBottom = document.body.getBoundingClientRect().bottom;
 
-  console.log(document.body.getBoundingClientRect());
+  // console.log(document.body.getBoundingClientRect());
 
   clientHeight = document.documentElement.clientHeight;
 
-  console.log(clientHeight);
+  // console.log(clientHeight);
 
   return;
-  
-  if(distanceToBottom < clientHeight+150){
+
+  if (distanceToBottom < clientHeight + 150) {
     currentElement = document.createElement("div");
     currentElement.style.height = "3000px";
     curElementNumber++;
-    document.body.append(currentElement)
+    document.body.append(currentElement);
   }
 }
 
@@ -58,3 +58,47 @@ function scrollHandler(){
 // We have to make sure it stored in a ConstantSourceNode, and remove it later
 
 // Bind create a new function object!!!!!!!!!!, you must store a bind function in a new constant, if you want to remove it.
+
+const submitHandler = event => {
+  event.preventDefault();
+  console.log(event);
+};
+
+const form = document.querySelector("form");
+form.addEventListener("submit", submitHandler);
+
+const div = document.querySelector("div");
+const button = document.querySelector("button");
+const bod = document.body;
+
+button.addEventListener(
+  "click",
+  event => {
+    // event.stopPropagation();
+    console.log("button clicked");
+    console.log(event);
+  },
+  true
+);
+
+
+bod.addEventListener(
+  "click",
+  event => {
+    // event.stopPropagation();
+    console.log("Body clicked");
+    console.log(event);
+  },
+  true
+);
+
+div.addEventListener("click", event => {
+  // event.stopPropagation();
+  console.log("Div clicked");
+  console.log(event);
+});
+
+
+// Trickle Down, Bubble up
+// Button, body, div
+// bubble up trickle down
