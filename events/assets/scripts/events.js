@@ -127,4 +127,7 @@ ul.addEventListener("click", event => {
 
   const currentLi = event.target.closest("li");
   currentLi.classList.toggle("highlight");
+  // form.click();
+  form.querySelector("button").click();
+  // div.click();
 });
