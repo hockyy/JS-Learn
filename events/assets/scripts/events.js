@@ -71,6 +71,8 @@ const div = document.querySelector("div");
 const button = document.querySelector("button");
 const bod = document.body;
 
+// Event propagation
+
 button.addEventListener(
   "click",
   event => {
@@ -81,16 +83,15 @@ button.addEventListener(
   true
 );
 
-
-bod.addEventListener(
-  "click",
-  event => {
-    // event.stopPropagation();
-    console.log("Body clicked");
-    console.log(event);
-  },
-  true
-);
+// bod.addEventListener(
+//   "click",
+//   event => {
+//     // event.stopPropagation();
+//     console.log("Body clicked");
+//     console.log(event);
+//   },
+//   true
+// );
 
 div.addEventListener("click", event => {
   // event.stopPropagation();
@@ -98,7 +99,32 @@ div.addEventListener("click", event => {
   console.log(event);
 });
 
-
 // Trickle Down, Bubble up
 // Button, body, div
 // bubble up trickle down
+
+// Event delegation
+
+const allLi = document.querySelectorAll("li");
+const ul = document.querySelector("ul");
+
+// const liHandler = event => {
+//   event.target.classList.toggle("highlight");
+// }
+
+// for(const li of allLi){
+//   li.addEventListener("click", liHandler);
+// }
+
+// Event delegation pattern
+ul.addEventListener("click", event => {
+  // Event target is always the deepest bubble, can be buggy be careful
+  console.log(event.currentTarget); // Reverse to the assigned target
+  console.log(event.target);
+
+  // Closest get closest ancestor with certain tag
+  console.log(event.target.closest("li"));
+
+  const currentLi = event.target.closest("li");
+  currentLi.classList.toggle("highlight");
+});
