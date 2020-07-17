@@ -113,8 +113,6 @@ class ProjectItem {
       // console.log(event);
     });
 
-    
-
   }
 
   connectMoreInfoButton() {
@@ -171,7 +169,7 @@ class ProjectList {
 
     // Leaving droppable area
     list.addEventListener("dragleave", event => {
-      console.log(event);
+      // console.log(event);
       if (event.relatedTarget.closest("ul") !== list) {
         list.parentElement.classList.remove("droppable");
       }
