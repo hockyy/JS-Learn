@@ -34,13 +34,18 @@ printHobbies(hobbies);
 
 // Factory function, a function that returns another function that can be used later.
 
+let multiplier = 1.1;
+
 function createTaxCalculator(tax) {
+  console.log(multiplier);
   function calculateTax(amount) {
-    return amount * tax;
+    return amount * tax * multiplier;
   }
 
   return calculateTax;
 }
+
+multiplier = 1.2;
 
 const calculateVatAmount = createTaxCalculator(0.19);
 const calculateIncomeTaxAmount = createTaxCalculator(0.25);
