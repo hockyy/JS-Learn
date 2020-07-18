@@ -57,7 +57,23 @@ const isEmail = emailRegex.test(email);
 console.log(isEmail);
 console.log(emailRegex.test("ayam.as@gmail"));
 
-const newRegex = /hello/ // Case sensitive
+let newRegex = /hello/ // Case sensitive
+// newRegex = /he(l|L)lo/ // Case sensitive
 console.log(newRegex.test("hi there, hello ...")) // true
 console.log(newRegex.test("hi there, heLlo ...")) // false
+console.log(newRegex.test("hi there, helo ...")) // false
 
+let anotherRegex = /.ello/
+console.log(anotherRegex.test("hello")); // True
+console.log(anotherRegex.test("ello")); // False
+
+// Dot has special meaning, the character "." means literally the character dot.
+
+// \S means string, because "S" means literal "S"
+
+// Max is not a regexpert, and you dont have to be. Just google the s out of it lol.
+
+// Returns info (Objects), including first match index, length, etc
+console.log(emailRegex.exec(email))
+
+console.log(email.match(emailRegex));
