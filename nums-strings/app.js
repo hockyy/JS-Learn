@@ -40,3 +40,24 @@ console.log(prodDesc);
 
 
 // Regular Expression - Regex
+// is used to search a pattern in string
+
+
+const email = "hocky.yudhiono@gmail.com"
+const regex = new RegExp("");
+const emailRegex = /^\S+@\S+\.\S+$/;
+
+
+console.log(regex);
+console.log(emailRegex);
+
+console.dir(RegExp);
+
+const isEmail = emailRegex.test(email);
+console.log(isEmail);
+console.log(emailRegex.test("ayam.as@gmail"));
+
+const newRegex = /hello/ // Case sensitive
+console.log(newRegex.test("hi there, hello ...")) // true
+console.log(newRegex.test("hi there, heLlo ...")) // false
+
