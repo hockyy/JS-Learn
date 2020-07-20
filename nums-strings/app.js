@@ -74,6 +74,7 @@ console.log(anotherRegex.test("ello")); // False
 // Max is not a regexpert, and you dont have to be. Just google the s out of it lol.
 
 // Returns info (Objects), including first match index, length, etc
-console.log(emailRegex.exec(email))
+console.log(emailRegex.exec(email));
+console.log(emailRegex.exec("ASASDASASS"));
 
 console.log(email.match(emailRegex));
